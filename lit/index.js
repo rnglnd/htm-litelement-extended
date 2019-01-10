@@ -48,12 +48,13 @@ class LitChippy extends LitElement {
         .main { grid-area: main; }
         .address { grid-area: address; }
         .basket { grid-area: basket; }
+        
         .chips { grid-area: chips; }
         .burgers { grid-area: burgers; }
         .chicken { grid-area: chicken; }
         .sides { grid-area: sides; }
-
-        .container {
+        
+        :host {
           max-width: 900px;
           display: grid;
           grid-template-areas:
@@ -64,7 +65,7 @@ class LitChippy extends LitElement {
           grid-gap: 10px;
           margin: 4px;
         }
-
+        
         .main {
           display: grid;
           grid-template-areas:
@@ -77,9 +78,76 @@ class LitChippy extends LitElement {
           border-radius: 5px;
           grid-gap: 10px;
         }
-
+        
+        .header {
+          border: 5px double red;
+          padding: 10px 0px;
+          border-radius: 5px;
+          margin: 0;
+          text-align: center;
+          font-family: Impact;
+          font-style: italic;
+        }
+        
+        .main-list, .basket-list {
+          padding: 0;
+          margin: 0;
+          cursor: pointer;
+        }
+        
+        .main-item, .basket-item {
+          list-style-type: none;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+        }
+        
+        .main-header {
+          justify-self: center;
+          margin-top: 0;
+        }
+        
+        .basket {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+        }
+        
+        .title {
+          display: flex;
+          justify-content: space-between;
+          font-weight: 600;
+        }
+        
+        .total {
+          display: flex;
+          justify-content: space-between;
+          border-top: 1px solid red;
+        }
+        
+        .address {
+          background-color: rgba(255,0,0,0.2);
+          padding: 15px;
+          border-radius: 5px;
+          height: fit-content;
+        }
+        
+        .address > p {
+          margin: 5px 0;
+        }
+        
+        .basket {
+          border: 1px solid red;
+          border-radius: 5px;
+          padding: 15px;
+        }
+        
+        p, span {
+          font-size: 16px;
+        }
+        
         @media only screen and (min-width: 600px) {
-          .container {
+          :host {
             max-width: 900px;
             grid-template-areas:
             'header header header'
@@ -94,19 +162,21 @@ class LitChippy extends LitElement {
             'chips burgers'
             'chicken sides';
           }
+        
+          .main-item, .basket-item {
+            margin-bottom: 0px;
+          }
         }
       </style>
-      <div class="container">
-        ${renderHeader()}
-        <div class="main">
-          ${renderSection('Chips', chipItems, this.addItem.bind(this))}
-          ${renderSection('Burgers', burgerItems, this.addItem.bind(this))}
-          ${renderSection('Chicken', chickenItems, this.addItem.bind(this))}
-          ${renderSection('Sides', sideItems, this.addItem.bind(this))}
-        </div>
-        ${renderAddress()}
-        ${renderBasket(this.basket, this.removeItem.bind(this), total)}
+      ${renderHeader()}
+      <div class="main">
+        ${renderSection('Chips', chipItems, this.addItem.bind(this))}
+        ${renderSection('Burgers', burgerItems, this.addItem.bind(this))}
+        ${renderSection('Chicken', chickenItems, this.addItem.bind(this))}
+        ${renderSection('Sides', sideItems, this.addItem.bind(this))}
       </div>
+      ${renderAddress()}
+      ${renderBasket(this.basket, this.removeItem.bind(this), total)}
     `;
   }
 };
