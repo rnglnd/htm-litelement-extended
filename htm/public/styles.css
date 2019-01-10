@@ -1,0 +1,127 @@
+.header { grid-area: header; }
+.main { grid-area: main; }
+.address { grid-area: address; }
+.basket { grid-area: basket; }
+
+.chips { grid-area: chips; }
+.burgers { grid-area: burgers; }
+.chicken { grid-area: chicken; }
+.sides { grid-area: sides; }
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  display: grid;
+  grid-template-areas:
+  'header header'
+  'main address'
+  'main basket'
+  'main basket';
+  grid-gap: 10px;
+  margin: 4px;
+}
+
+.main {
+  display: grid;
+  grid-template-areas:
+  'chips'
+  'burgers'
+  'chicken'
+  'sides';
+  border: 5px double red;
+  padding: 10px 20px;
+  border-radius: 5px;
+  grid-gap: 10px;
+}
+
+.header {
+  border: 5px double red;
+  padding: 10px 0px;
+  border-radius: 5px;
+  margin: 0;
+  text-align: center;
+  font-family: Impact;
+  font-style: italic;
+}
+
+.main-list, .basket-list {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.main-item, .basket-item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.main-header {
+  justify-self: center;
+  margin-top: 0;
+}
+
+.basket {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid red;
+}
+
+.address {
+  background-color: rgba(255,0,0,0.2);
+  padding: 15px;
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.address > p {
+  margin: 5px 0;
+}
+
+.basket {
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+p, span {
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    max-width: 900px;
+    grid-template-areas:
+    'header header header'
+    'main main address'
+    'main main basket';
+    grid-gap: 10px;
+    margin: 8px;
+  }
+
+  .main {
+    grid-template-areas:
+    'chips burgers'
+    'chicken sides';
+  }
+
+  .main-item, .basket-item {
+    margin-bottom: 0px;
+  }
+}
