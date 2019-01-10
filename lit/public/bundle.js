@@ -2210,15 +2210,15 @@
           }
         }
       </style>
-        ${renderHeader()}
-        <div class="main">
-          ${renderSection('Chips', chipItems, this.addItem.bind(this))}
-          ${renderSection('Burgers', burgerItems, this.addItem.bind(this))}
-          ${renderSection('Chicken', chickenItems, this.addItem.bind(this))}
-          ${renderSection('Sides', sideItems, this.addItem.bind(this))}
-        </div>
-        ${renderAddress()}
-        ${renderBasket(this.basket, this.removeItem.bind(this), total)}
+      ${renderHeader()}
+      <div class="main">
+        ${renderSection('Chips', chipItems, this.addItem.bind(this))}
+        ${renderSection('Burgers', burgerItems, this.addItem.bind(this))}
+        ${renderSection('Chicken', chickenItems, this.addItem.bind(this))}
+        ${renderSection('Sides', sideItems, this.addItem.bind(this))}
+      </div>
+      ${renderAddress()}
+      ${renderBasket(this.basket, this.removeItem.bind(this), total)}
     `;
       }
     }
