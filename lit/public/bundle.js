@@ -1989,7 +1989,7 @@
 
     var renderHeader = () => html`
   <style>
-    header {
+    .header {
       border: 5px double red;
       padding: 10px 0px;
       border-radius: 5px;
@@ -2121,7 +2121,7 @@
       <span class="title"><span>Quantity</span><span>Price</span></span>
       <ul class="basket-list">
         ${basket.map((item) => html`
-          <li class="basket-item" onClick=${() => removeItem(item)}>
+          <li class="basket-item" @click=${() => removeItem(item)}>
             <span>${item.quantity}</span><span>£${item.price}</span>
           </li>
         `)}

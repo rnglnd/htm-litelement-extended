@@ -2,7 +2,7 @@ import { html } from '@polymer/lit-element';
 
 export default () => html`
   <style>
-    header {
+    .header {
       border: 5px double red;
       padding: 10px 0px;
       border-radius: 5px;
